@@ -9,6 +9,9 @@ import SwiftUI
 
 struct SettingsView: View {
     
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    @Binding var titleOn: Bool
+    
     @State private var name = ""
     @State private var isPushesAllowed = false
     
@@ -19,12 +22,15 @@ struct SettingsView: View {
     
     var body: some View {
         Form {
-            Section {
-                TextField("Name", text: $name)
-                Toggle("Allow pushes", isOn: $isPushesAllowed)
+            Section (header: Text("Работает")) {
+                Text(colorScheme == .light ? "Light Theme enabled" : "Dark Theme enabled")
+                Toggle("Enable show title", isOn: $titleOn)
+                Text(titleOn ? "Navigation title enabled" : "Navigation title disabled")
+                
             }
 
-            Section {
+            Section (header: Text("Прототипы")) {
+                TextField("Name", text: $name)
                 Picker("Picker", selection: $selectedGender) {
                     ForEach(genders, id: \.self) {
                         Text($0)
@@ -39,6 +45,6 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        SettingsView(titleOn: .constant(true))
     }
 }

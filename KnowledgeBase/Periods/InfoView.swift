@@ -9,23 +9,30 @@ import SwiftUI
 
 struct InfoView: View {
     let posts = ContentGenerator.model()
+    var titleOn: Bool
     
     var body: some View {
         NavigationStack {
-            List(posts, id: \.title) { post in
-                NavigationLink {
-                    InfoDetails(post: post)
-                } label: {
-                    InfoRow(post: post)
+            if titleOn {
+                Section {
+                    Text("Periods")
                 }
             }
-            .navigationBarTitle("Periods", displayMode: .inline)
+            Section {
+                List(posts, id: \.title) { post in
+                    NavigationLink {
+                        InfoDetails(post: post)
+                    } label: {
+                        InfoRow(post: post)
+                    }
+                }
+            }
         }
     }
 }
 
 struct InfoView_Previews: PreviewProvider {
     static var previews: some View {
-        InfoView()
+        InfoView(titleOn: true)
     }
 }
