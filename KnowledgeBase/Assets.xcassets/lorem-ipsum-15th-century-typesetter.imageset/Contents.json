@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "lorem-ipsum-15th-century-typesetter.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
