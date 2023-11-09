@@ -16,9 +16,9 @@ struct MainView: View {
                 .tabItem {
                     Label("Info", systemImage: "globe")
                 }
-            HelloView()
+            PhotoGalleryView()
                 .tabItem {
-                    Label("Hello", systemImage: "helm")
+                    Label("Photos", systemImage: "photo.on.rectangle.angled")
                 }
             SettingsView(titleOn: $titleOn)
                 .tabItem {

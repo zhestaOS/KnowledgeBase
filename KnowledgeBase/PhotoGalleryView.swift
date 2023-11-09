@@ -6,15 +6,18 @@
 //
 
 import SwiftUI
+import AVFoundation
 
-struct HelloView: View {
+struct PhotoGalleryView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            GridView()
+        }
     }
 }
 
 struct HelloView_Previews: PreviewProvider {
     static var previews: some View {
-        HelloView()
+        PhotoGalleryView()
     }
 }
